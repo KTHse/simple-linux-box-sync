@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+# Simple box sync script using davfs to mount box.com and unison to
+# maintain a local copy of files. Requires configuration of 
+# davfs, and entry in /etc/fstab. See README.md.
+#
+
+SYNCDIR=$HOME/Box\ Sync
+LOCKFILE=/tmp/lock.box.sync
+MNTDIR=$(grep davfs /etc/fstab | awk '{print $2}')
+
+function fail {
+    echo "$*" 2>&1
+    exit 1
+}
+
+function prepare {
+    if [ -d "$MNTDIR" ]; then
+        local owner=$(ls -dl "$MNTDIR" | awk '{print $3}')
+        if [ "$owner" != "$USER" ]; then
+            fail "$MNTDIR already exists and is not owned by $USER."
+        fi
+    else 
+        mkdir -m 0700 -p "$MNTDIR"
+    fi
+
+    if [ ! -d "$SYNCDIR" ]; then
+        mkdir "$SYNCDIR"
+    fi
+}
+
+function cleanup {
+    rm -f "$LOCKFILE"
+    umount "$MNTDIR"
+    rmdir "$MNTDIR"
+}
+
+function box_sync {
+    trap cleanup EXIT
+    
+    mount "$MNTDIR" || fail "Unable to mount davfs."
+    ( flock -n 9 || exit 1
+        unison "$SYNCDIR" "$MNTDIR" \
+            -ui text \
+            -retry 3 \
+            -auto \
+            -batch \
+            -repeat 60
+    ) 9>"$LOCKFILE"
+}
+
+# Make sourceable for debug
+return &> /dev/null
+
+prepare
+box_sync
