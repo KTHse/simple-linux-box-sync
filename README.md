@@ -6,7 +6,7 @@ The supported fall back is to use davfs to mount the Box.com folder.
 With the instructions in this file and the provided script it is
 possible to implement a rudimentary sync client.
 
-* Caveats
+# Caveats
 
 The davfs mount does not reflect sync settings in Box, so everything 
 will be downloaded locally. This includes folders shared with you. 
@@ -14,9 +14,9 @@ This may potentially be a LOT of data.
 
 Remember to exclude Box Sync directory from local backups.
 
-* Configurations
+# Configurations
 
-** DAVFS mount
+## DAVFS mount
 
 I believe davfs is included by default in Ubuntu Linux, otherwise you'll
 have to install it.
@@ -44,11 +44,11 @@ Create a mount point `mkdir -p /tmp/box/mnt` and add a line to /etc/fstab
 
 ```https://dav.box.com/dav /media/box.com davfs rw,users,noauto 0 0```
 
-** Unison
+## Unison
 
 Install unison with `sudo apt-get install unison`
 
-* Syncing
+# Syncing
 
 That should be it, execute the box-sync script and it should create a `Box Sync` folder
 in your home folder and maintain a local copy of the Box.com files in it.
