@@ -54,3 +54,14 @@ Install unison with `sudo apt-get install unison`
 That should be it, execute the box-sync script and it should create a `Box Sync` folder
 in your home folder and maintain a local copy of the Box.com files in it.
 
+## Suggestions of things to work on
+
+The script is very simplistic in several aspects. In particular it assumes that there is
+only one davfs mount point (in fact, just one occurence of the string 'davfs') in the fstab.
+
+* Replace the script with a more full featured client with user interface.
+** Handle configuration with client.
+** Taskbar integration.
+** System settings integration.
+* Handle installation with dependencies by proper installation package.
+* Use REST-api to read and respect sync settings for Box folders.
