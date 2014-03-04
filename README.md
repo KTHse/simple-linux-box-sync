@@ -65,4 +65,5 @@ only one davfs mount point (in fact, just one occurence of the string 'davfs') i
   * System settings integration.
 * Handle installation with dependencies by proper installation package.
 * Use REST-api to read and respect sync settings for Box folders.
+* Consider using unison graphic interface.
 * Consider using incrond (inotify cron daemon).
