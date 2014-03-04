@@ -12,7 +12,8 @@ The davfs mount does not reflect sync settings in Box, so everything
 will be downloaded locally. This includes folders shared with you. 
 This may potentially be a LOT of data. 
 
-Remember to exclude Box Sync directory from local backups.
+Consider the local sync folder a local cache. Do not store it on file
+servers, remember to exclude Box Sync directory from local backups.
 
 ## Configurations
 
