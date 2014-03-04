@@ -1,5 +1,5 @@
-Simple Linux sync "client" for Box.com
-======================================
+Naive Linux sync "client" for Box.com
+=====================================
 
 Unfortunately Box.com does not provide a native Linux sync client.
 The supported fall back is to use davfs to mount the Box.com folder.
