@@ -60,8 +60,8 @@ The script is very simplistic in several aspects. In particular it assumes that 
 only one davfs mount point (in fact, just one occurence of the string 'davfs') in the fstab.
 
 * Replace the script with a more full featured client with user interface.
-** Handle configuration with client.
-** Taskbar integration.
-** System settings integration.
+  * Handle configuration with client.
+  * Taskbar integration.
+  * System settings integration.
 * Handle installation with dependencies by proper installation package.
 * Use REST-api to read and respect sync settings for Box folders.
