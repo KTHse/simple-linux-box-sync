@@ -30,7 +30,8 @@ You have to add your davfs secrets to the file .davfs2/secrets. The secret
 is created at https://kth.app.box.com/settings (for KTH users, it's in your 
 settings at box.com)
 
-Add a line to the file ~/.davfs2/secrets 
+Add a line to the file ~/.davfs2/secrets and limit the accessability of 
+the file with `chmod 0600 .davfs2/secrets`
 
 ```https://dav.box.com/dav <email-address>@kth.se <your box secret>```
 
@@ -38,8 +39,6 @@ Add a line to the davfs configuration file ~/.davfs2/davfs2.conf (or /etc/davfs2
 to turn off locking.
 
 ```use_locks 0```
-
-Limit the accessability of the file `chmod 0600 .davfs2/secrets`
 
 Add a line to /etc/fstab, possibly creating directories if you choose some
 other path.
