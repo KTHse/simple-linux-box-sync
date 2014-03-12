@@ -35,13 +35,13 @@ Add a line to the file ~/.davfs2/secrets
 ```https://dav.box.com/dav <email-address>@kth.se <your box secret>```
 
 Add a line to the davfs configuration file ~/.davfs2/davfs2.conf (or /etc/davfs2/davfs2.conf)
-to turn of locking.
+to turn off locking.
 
 ```use_locks 0```
 
 Limit the accessability of the file `chmod 0600 .davfs2/secrets`
 
-Create a mount point `mkdir -p /tmp/box/mnt` and add a line to /etc/fstab
+Create a mount point `mkdir -p /media/box.com` and add a line to /etc/fstab
 
 ```https://dav.box.com/dav /media/box.com davfs rw,users,noauto 0 0```
 
