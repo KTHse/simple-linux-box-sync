@@ -41,7 +41,8 @@ to turn off locking.
 
 Limit the accessability of the file `chmod 0600 .davfs2/secrets`
 
-Create a mount point `mkdir -p /media/box.com` and add a line to /etc/fstab
+Add a line to /etc/fstab, possibly creating directories if you choose some
+other path.
 
 ```https://dav.box.com/dav /media/box.com davfs rw,users,noauto 0 0```
 
